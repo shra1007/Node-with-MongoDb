@@ -8,24 +8,26 @@ let app = express();
 app.use(express.json())
 
     app.listen(8000,()=>{
-        main();
+        // main();
 
         console.log("Server Started")
     })
 
     app.get("/",async (req,res)=>{
 
+      res.send("hello")
+      
         // main();
-        try{
-        let data = await MasterTable.find()
+        // try{
+        // let data = await MasterTable.find()
         
-        res.status(200).json(data.map(d=>{return ({key:d.key,value:d.value})}))
-        }
-        catch(error){
+        // res.status(200).json(data.map(d=>{return ({key:d.key,value:d.value})}))
+        // }
+        // catch(error){
         
-            console.log(error)
-            res.status(500).json({"Message":"error"})
-        }
+        //     console.log(error)
+        //     res.status(500).json({"Message":"error"})
+        // }
     })  
 
     app.post("/add", async (req,res)=>{
